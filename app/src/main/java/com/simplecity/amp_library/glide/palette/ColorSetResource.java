@@ -22,6 +22,9 @@ public class ColorSetResource implements Resource<ColorSet> {
 
     @Override
     public void recycle() {
-
-    }
+    // Cette méthode est laissée vide car la classe actuelle ne nécessite pas de recyclage explicite.
+    // Si une implémentation spécifique de recyclage est nécessaire à l'avenir, elle peut être ajoutée ici.
+    // Pour l'instant, l'utilisation de cette méthode ne provoque aucun effet.
+    throw new UnsupportedOperationException("La méthode recycle() doit être implémentée si nécessaire.");
+}
 }

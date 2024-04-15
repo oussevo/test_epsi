@@ -1,0 +1,7 @@
+organization=oussevo15042024
+projectKey=oussevo_test_epsi
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.53820
+dashboardUrl=https://sonarcloud.io/dashboard?id=oussevo_test_epsi
+ceTaskId=AY7h6ADV6j1WD6BgyQzc
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AY7h6ADV6j1WD6BgyQzc
