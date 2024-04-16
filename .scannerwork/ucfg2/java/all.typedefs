@@ -2874,7 +2874,12 @@ toString()]com.simplecity.amp_library.ui.modelviews.PlaylistView$ViewHolder#toS
 9com.simplecity.amp_library.glide.palette.ColorSetResourceResourcejava.lang.ObjectR
 get()Icom.simplecity.amp_library.glide.palette.ColorSetResource#get()LColorSet;Q
 	getSize()Dcom.simplecity.amp_library.glide.palette.ColorSetResource#getSize()IQ
-	recycle()Dcom.simplecity.amp_library.glide.palette.ColorSetResource#recycle()VÉ
+	recycle()Dcom.simplecity.amp_library.glide.palette.ColorSetResource#recycle()Vﬁ
+'java.lang.UnsupportedOperationExceptionjava.lang.RuntimeException=
+<init>()1java.lang.UnsupportedOperationException#<init>()Va
+<init>(Ljava/lang/String;)Cjava.lang.UnsupportedOperationException#<init>(Ljava/lang/String;)Vã
+/<init>(Ljava/lang/String;Ljava/lang/Throwable;)Xjava.lang.UnsupportedOperationException#<init>(Ljava/lang/String;Ljava/lang/Throwable;)Vg
+<init>(Ljava/lang/Throwable;)Fjava.lang.UnsupportedOperationException#<init>(Ljava/lang/Throwable;)VÉ
 3com.simplecity.amp_library.glide.fetcher.TagFetcherBaseFetcherc
 getStream()Tcom.simplecity.amp_library.glide.fetcher.TagFetcher#getStream()Ljava/io/InputStream;Z
 getTag()Ncom.simplecity.amp_library.glide.fetcher.TagFetcher#getTag()Ljava/lang/String;D
@@ -5159,12 +5164,7 @@ isetPaletteBuilderInterceptor(Lcom/github/florent37/glidepalette/BitmapPalette$P
 8com.github.florent37.glidepalette.BitmapPalette$CallBackjava.lang.Object]
 Icom.github.florent37.glidepalette.BitmapPalette$PaletteBuilderInterceptorjava.lang.Objectl
 7com.github.florent37.glidepalette.BitmapPalette$Profilejava.lang.Objectjava.lang.annotation.Annotationk
-6com.github.florent37.glidepalette.BitmapPalette$Swatchjava.lang.Objectjava.lang.annotation.Annotationﬁ
-'java.lang.UnsupportedOperationExceptionjava.lang.RuntimeException=
-<init>()1java.lang.UnsupportedOperationException#<init>()Va
-<init>(Ljava/lang/String;)Cjava.lang.UnsupportedOperationException#<init>(Ljava/lang/String;)Vã
-/<init>(Ljava/lang/String;Ljava/lang/Throwable;)Xjava.lang.UnsupportedOperationException#<init>(Ljava/lang/String;Ljava/lang/Throwable;)Vg
-<init>(Ljava/lang/Throwable;)Fjava.lang.UnsupportedOperationException#<init>(Ljava/lang/Throwable;)V0
+6com.github.florent37.glidepalette.BitmapPalette$Swatchjava.lang.Objectjava.lang.annotation.Annotation0
 Palette.PaletteAsyncListenerjava.lang.ObjectQ
 1com.github.florent37.glidepalette.BitmapPalette$1Palette.PaletteAsyncListener;
 'FastScrollRecyclerView.SectionedAdapterjava.lang.Objectµ
