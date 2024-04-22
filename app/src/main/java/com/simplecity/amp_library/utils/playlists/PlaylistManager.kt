@@ -88,8 +88,7 @@ class PlaylistManager @Inject constructor(
                             messageText.text = getPlaylistRemoveString(duplicates[0])
                             applyToAll.text = String.format(applicationContext.getString(R.string.dialog_checkbox_playlist_duplicate_apply_all), duplicates.size)
 
-                            // Fixme: Should not use application context to present dialog.
-                            MaterialDialog.Builder(applicationContext)
+                            MaterialDialog.Builder(applyToAll.text)
                                 .title(R.string.dialog_title_playlist_duplicates)
                                 .customView(customView, false)
                                 .positiveText(R.string.dialog_button_playlist_duplicate_add)
@@ -100,7 +99,7 @@ class PlaylistManager @Inject constructor(
                                         //If we're 'adding' this song, we remove it from the 'duplicates' list
                                         duplicates.removeAt(0)
                                         messageText.text = getPlaylistRemoveString(duplicates[0])
-                                        applyToAll.text = String.format(applicationContext.getString(R.string.dialog_checkbox_playlist_duplicate_apply_all), duplicates.size)
+                                        applyToAll.text = String.format(applyToAll.text, duplicates.size)
                                     } else {
                                         //Add all songs to the playlist
                                         insertPlaylistItems(playlist, mutableSongList, existingSongs.size, callback)

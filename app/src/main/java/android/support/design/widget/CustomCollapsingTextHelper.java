@@ -83,7 +83,6 @@ public final class CustomCollapsingTextHelper {
     private Typeface mCurrentTypeface;
     private CharSequence mText;
     private CharSequence mTextToDraw;
-    private boolean mIsRtl;
     private boolean mUseTexture;
     private Bitmap mExpandedTitleTexture;
     private Paint mTexturePaint;
@@ -96,10 +95,14 @@ public final class CustomCollapsingTextHelper {
     private Interpolator mPositionInterpolator;
     private Interpolator mTextSizeInterpolator;
 
-    private float mCollapsedShadowRadius, mCollapsedShadowDx, mCollapsedShadowDy;
+    private float mCollapsedShadowRadius;
+    private float mCollapsedShadowDx;
+    private float mCollapsedShadowDy;
     private int mCollapsedShadowColor;
 
-    private float mExpandedShadowRadius, mExpandedShadowDx, mExpandedShadowDy;
+    private float mExpandedShadowRadius;
+    private float mExpandedShadowDx;
+    private float mExpandedShadowDy;
     private int mExpandedShadowColor;
 
     private CharSequence mSub;
@@ -305,7 +308,7 @@ public final class CustomCollapsingTextHelper {
                 return Typeface.create(family, Typeface.NORMAL);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Unable to read font family typeface: " + resId);
+            throw new IllegalArgumentException("Unable to read font family typeface: " + resId);
         } finally {
             a.recycle();
         }
@@ -494,7 +497,6 @@ public final class CustomCollapsingTextHelper {
         float textHeight = mTitlePaint.descent() - mTitlePaint.ascent();
         if (!TextUtils.isEmpty(mSub)) {
             float subHeight = mSubPaint.descent() - mSubPaint.ascent();
-            float subOffset = (subHeight / 2) - mSubPaint.descent();
             float offset = ((mCollapsedBounds.height() - (textHeight + subHeight)) / 3);
 
             mCollapsedDrawY = mCollapsedBounds.top + offset - mTitlePaint.ascent();
@@ -592,14 +594,6 @@ public final class CustomCollapsingTextHelper {
         canvas.restoreToCount(saveCount);
     }
 
-    private boolean calculateIsRtl(CharSequence text) {
-        final boolean defaultIsRtl = ViewCompat.getLayoutDirection(mView)
-                == ViewCompat.LAYOUT_DIRECTION_RTL;
-        return (defaultIsRtl
-                ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL
-                : TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(text, 0, text.length());
-    }
-
     private void setInterpolatedTextSize(float textSize) {
         calculateUsingTextSize(textSize);
 
@@ -687,7 +681,6 @@ public final class CustomCollapsingTextHelper {
                     availableWidth, TextUtils.TruncateAt.END);
             if (!TextUtils.equals(title, mTextToDraw)) {
                 mTextToDraw = title;
-                mIsRtl = calculateIsRtl(mTextToDraw);
             }
         }
     }

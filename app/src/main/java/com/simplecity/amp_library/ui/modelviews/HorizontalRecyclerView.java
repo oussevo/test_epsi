@@ -53,7 +53,7 @@ public class HorizontalRecyclerView extends BaseViewModel<HorizontalRecyclerView
         return new ViewHolder(createView(parent));
     }
 
-    public static class ViewHolder extends BaseViewHolder {
+    public static class ViewHolder extends BaseViewHolder<HorizontalRecyclerView> {
 
         public ViewHolder(View itemView) {
             super(itemView);

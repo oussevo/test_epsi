@@ -125,7 +125,7 @@ class SuggestedFragment :
         val gridLayoutManager = GridLayoutManager(context, spanCount)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                if (!adapter.items.isEmpty() && position >= 0) {
+                if (!adapter.items.isNotEmpty() && position >= 0) {
                     val item = adapter.items[position]
                     if (item is HorizontalRecyclerView
                         || item is SuggestedHeaderView

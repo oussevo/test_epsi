@@ -96,7 +96,7 @@ public class ArtworkDialog {
 
         ArtworkView.ClickListener listener = artworkView -> {
             Stream.of(viewModels)
-                    .filter(viewModel -> viewModel instanceof ArtworkView)
+                    .filter(ArtworkView.class::isInstance)
                     .forEachIndexed((i, viewModel) -> ((ArtworkView) viewModel).setSelected(viewModel == artworkView));
             adapter.notifyItemRangeChanged(0, adapter.getItemCount(), 0);
         };

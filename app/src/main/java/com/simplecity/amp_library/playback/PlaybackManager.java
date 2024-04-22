@@ -55,8 +55,6 @@ public class PlaybackManager implements Playback.Callbacks {
 
     private SettingsManager settingsManager;
 
-    private boolean playOnQueueReload = false;
-
     @NonNull
     Playback playback;
 
@@ -136,8 +134,8 @@ public class PlaybackManager implements Playback.Callbacks {
         }
 
         disposables.add(queueManager.reloadQueue(() -> {
-                    load(true, playOnQueueReload, playbackSettingsManager.getSeekPosition());
-                    playOnQueueReload = false;
+                    load(true, boolean playOnQueueReload, playbackSettingsManager.getSeekPosition());
+                    boolean playOnQueueReload = false;
                     return Unit.INSTANCE;
                 })
         );
@@ -525,7 +523,7 @@ public class PlaybackManager implements Playback.Callbacks {
         } else if (queueManager.getCurrentPlaylist().isEmpty()) {
             // This is mostly so that if you press 'play' on a bluetooth headset without ever having played anything before, it will still play something.
             if (queueManager.queueReloading) {
-                playOnQueueReload = true;
+                boolean playOnQueueReload = true;
             } else {
                 playAutoShuffleList();
             }

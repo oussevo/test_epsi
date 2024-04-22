@@ -304,7 +304,7 @@ public class Equalizer {
      */
     public synchronized void update() {
         try {
-            for (Integer sessionId : mAudioSessions.keySet()) {
+            for (Integer sessionId : mAudioSessions.entrySet()) {
                 updateDsp(mAudioSessions.get(sessionId));
             }
         } catch (NoSuchMethodError e) {
@@ -334,7 +334,7 @@ public class Equalizer {
         try {
             session.enableEqualizer(globalEnabled);
             final int customPresetPos = session.getNumEqualizerPresets();
-            final int preset = Integer.valueOf(mPrefs.getString("audiofx.eq.preset", String.valueOf(customPresetPos)));
+            final int preset = Integer.parseInt(mPrefs.getString("audiofx.eq.preset", String.valueOf(customPresetPos)));
             final int bands = session.getNumEqualizerBands();
 
             /*

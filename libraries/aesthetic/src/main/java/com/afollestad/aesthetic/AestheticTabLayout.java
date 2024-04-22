@@ -99,7 +99,7 @@ public class AestheticTabLayout extends TabLayout {
               .blockingFirst();
       ViewBackgroundAction.create(AestheticTabLayout.this).accept(primaryColor);
 
-      getHandler().postDelayed(new Runnable() {
+      getHandler().postDelayed(() -> {
           @Override
           public void run() {
 

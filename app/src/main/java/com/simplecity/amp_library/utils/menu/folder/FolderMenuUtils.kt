@@ -83,9 +83,8 @@ object FolderMenuUtils {
         CustomMediaScanner.scanFile(context, fileObject.path, { callbacks.showToast(it) })
     }
 
-    // Todo: Remove context requirement.
-    private fun scanFolder(context: Context, folderObject: FolderObject) {
-        CustomMediaScanner.scanFile(context, folderObject)
+    private fun scanFolder(folderObject: FolderObject) {
+        CustomMediaScanner.scanFile(folderObject)
     }
 
     // Todo: Remove context requirement.

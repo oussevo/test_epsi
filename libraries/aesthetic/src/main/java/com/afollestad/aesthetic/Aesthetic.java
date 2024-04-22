@@ -629,7 +629,7 @@ public class Aesthetic {
                         KEY_CARD_VIEW_BG_COLOR,
                         ContextCompat.getColor(
                             context,
-                            isDark ? R.color.ate_cardview_bg_dark : R.color.ate_cardview_bg_light))
+                            Boolean.TRUE.equals(isDark) ? R.color.ate_cardview_bg_dark : R.color.ate_cardview_bg_light))
                     .asObservable();
               }
             });

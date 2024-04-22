@@ -75,7 +75,7 @@ public class SubheaderView extends BaseViewModel<SubheaderView.ViewHolder> {
         return false;
     }
 
-    public static class ViewHolder extends BaseViewHolder {
+    public static class ViewHolder extends BaseViewHolder<SubheaderView> {
 
         @BindView(id.textView)
         TextView textView;

@@ -95,6 +95,11 @@ public abstract class BaseFragment extends BaseController {
         try {
             // Attempt to get the resource ID of the next animation that
             // will be applied to the given fragment.
+            Field nextAnimField = Fragment.class.getDeclaredField("mNextAnim");
+            nextAnimField;
+            int nextAnimResource = nextAnimField.getInt(fragment);
+            Animation nextAnim = AnimationUtils.loadAnimation(fragment.getActivity(), nextAnimResource);
+
             // ...and if it can be loaded, return that animation's duration
             return (nextAnim == null) ? defValue : nextAnim.getDuration();
         } catch (NoSuchFieldException | IllegalAccessException | Resources.NotFoundException ignored) {

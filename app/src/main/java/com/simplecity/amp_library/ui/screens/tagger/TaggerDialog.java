@@ -222,6 +222,14 @@ public class TaggerDialog extends DialogFragment {
         }
     }
 
+    private String getInfoChecker(Tag tag, FieldKey fieldKey) {
+        try {
+            return tag.getFirst(fieldKey);
+        } catch (UnsupportedOperationException ignored) {
+            return null;
+        }
+    }
+
     void populateViews() {
 
         if (originalSongPaths == null || originalSongPaths.isEmpty()) {
@@ -239,39 +247,15 @@ public class TaggerDialog extends DialogFragment {
             title = tag.getFirst(FieldKey.TITLE);
             albumName = tag.getFirst(FieldKey.ALBUM);
             artistName = tag.getFirst(FieldKey.ARTIST);
-            try {
-                albumArtistName = tag.getFirst(FieldKey.ALBUM_ARTIST);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
+            getInfoChecker(tag, FieldKey.ALBUM_ARTIST);
             genre = tag.getFirst(FieldKey.GENRE);
             year = tag.getFirst(FieldKey.YEAR);
             track = tag.getFirst(FieldKey.TRACK);
-            try {
-                trackTotal = tag.getFirst(FieldKey.TRACK_TOTAL);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
-            try {
-                disc = tag.getFirst(FieldKey.DISC_NO);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
-            try {
-                discTotal = tag.getFirst(FieldKey.DISC_TOTAL);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
-            try {
-                lyrics = tag.getFirst(FieldKey.LYRICS);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
-            try {
-                comment = tag.getFirst(FieldKey.COMMENT);
-            } catch (UnsupportedOperationException ignored) {
-
-            }
+            getInfoChecker(tag, FieldKey.TRACK_TOTAL);
+            getInfoChecker(tag, FieldKey.DISC_NO);
+            getInfoChecker(tag, FieldKey.DISC_TOTAL);
+            getInfoChecker(tag, FieldKey.LYRICS);
+            getInfoChecker(tag, FieldKey.COMMENT);
         } catch (IOException | InvalidAudioFrameException | TagException | ReadOnlyFileException | CannotReadException e) {
             Log.e(TAG, "Failed to read tags. " + e.toString());
         }

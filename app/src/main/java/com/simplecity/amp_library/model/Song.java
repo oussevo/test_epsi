@@ -44,7 +44,7 @@ public class Song implements
     public int dateAdded;
     public long playlistSongId;
     public long playlistSongPlayOrder;
-    public int playCount;
+    public int playCount = 0;
     public long lastPlayed;
     public long startTime;
     private long elapsedTime = 0;
@@ -156,9 +156,6 @@ public class Song implements
     }
 
     public int getPlayCount(Context context) {
-
-        int playCount = 0;
-
         Uri playCountUri = PlayCountTable.URI;
         Uri appendedUri = ContentUris.withAppendedId(playCountUri, id);
 

@@ -43,8 +43,8 @@ class GenreDetailPresenter @AssistedInject constructor(
     SongMenuContract.Presenter by songsMenuPresenter {
 
     @AssistedInject.Factory
-    interface Factory {
-        fun create(genre: Genre): GenreDetailPresenter
+    fun interface Factory {
+        create(genre: Genre): GenreDetailPresenter
     }
 
     private var songs: MutableList<Song> = mutableListOf()

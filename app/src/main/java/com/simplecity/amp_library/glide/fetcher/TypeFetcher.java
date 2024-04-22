@@ -57,12 +57,9 @@ public class TypeFetcher implements DataFetcher<InputStream> {
             case ArtworkProvider.Type.REMOTE:
                 dataFetcher = new RemoteFetcher(artworkProvider);
                 break;
-            default:
-                throw new IllegalArgumentException("Type d'artworkProvider non pris en charge : " + type);
         }
         return loadData(dataFetcher, priority);
     }
-    
 
     @Override
     public void cleanup() {

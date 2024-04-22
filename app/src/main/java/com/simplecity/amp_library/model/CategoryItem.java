@@ -78,6 +78,8 @@ public class CategoryItem {
                 return R.string.folders_title;
             case Type.PLAYLISTS:
                 return R.string.playlists_title;
+            default:
+                return R.string.genres_title;
         }
         return -1;
     }
@@ -98,6 +100,8 @@ public class CategoryItem {
                 return "folders";
             case Type.PLAYLISTS:
                 return "playlists";
+            default:
+                return "genres";
         }
         return null;
     }

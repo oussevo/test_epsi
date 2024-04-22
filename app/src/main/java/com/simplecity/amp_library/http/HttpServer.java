@@ -93,7 +93,7 @@ public class HttpServer {
 
                     Map<String, String> headers = session.getHeaders();
                     String range = null;
-                    for (String key : headers.keySet()) {
+                    for (String key : headers.entrySet()) {
                         if ("range".equals(key)) {
                             range = headers.get(key);
                         }
@@ -171,7 +171,7 @@ public class HttpServer {
         }
     }
 
-    private final Map<String, String> MIME_TYPES = new HashMap<String, String>() {{
+    private final Map<String, String> MIME_TYPES = new HashMap<String, String>() {
         put("css", "text/css");
         put("htm", "text/html");
         put("html", "text/html");
@@ -198,7 +198,7 @@ public class HttpServer {
         put("zip", "application/octet-stream");
         put("exe", "application/octet-stream");
         put("class", "application/octet-stream");
-    }};
+    };
 
     String getMimeType(String filePath) {
         return MIME_TYPES.get(filePath.substring(filePath.lastIndexOf(".") + 1));

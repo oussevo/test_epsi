@@ -41,7 +41,7 @@ public class SearchHeaderView extends BaseViewModel<SearchHeaderView.ViewHolder>
         return new ViewHolder(createView(parent));
     }
 
-    public static class ViewHolder extends BaseViewHolder {
+    public static class ViewHolder extends BaseViewHolder<SearchHeaderView> {
 
         TextView lineOne;
 

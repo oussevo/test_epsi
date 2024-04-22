@@ -17,9 +17,7 @@ public class DrawerLockManager {
     @Nullable
     private DrawerLockController drawerLockController;
 
-    private DrawerLockManager() {
-
-    }
+    private DrawerLockManager() {}
 
     public static DrawerLockManager getInstance() {
         if (instance == null) {

@@ -25,7 +25,7 @@ public class LoadingView extends BaseViewModel<LoadingView.ViewHolder> {
         return new ViewHolder(createView(parent));
     }
 
-    public static class ViewHolder extends BaseViewHolder {
+    public static class ViewHolder extends BaseViewHolder<LoadingView> {
 
         public ViewHolder(View itemView) {
             super(itemView);

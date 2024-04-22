@@ -134,9 +134,6 @@ public class TaggerTask extends AsyncTask<Object, Integer, Boolean> {
 
                         audioFile = AudioFileIO.read(temp);
                         tag = audioFile.getTag();
-                        if (tag == null) {
-                            break;
-                        }
                     }
 
                     tagUpdate.updateTag(tag);
@@ -166,10 +163,10 @@ public class TaggerTask extends AsyncTask<Object, Integer, Boolean> {
                 e.printStackTrace();
             } finally {
                 //Try to clean up our temp files
-                if (tempFiles != null && tempFiles.size() != 0) {
+                if (tempFiles != null && tempFiles.size().isEmpty()) {
                     for (int j = tempFiles.size() - 1; j >= 0; j--) {
                         File file = tempFiles.get(j);
-                        file.delete();
+                        Files.delete();
                         tempFiles.remove(j);
                     }
                 }
